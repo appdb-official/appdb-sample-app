@@ -1,0 +1,111 @@
+default_platform(:ios)
+
+platform :ios do
+  lane :deploy_debug do |options|
+    deploy("Debug")
+  end
+
+  lane :deploy_release do |options|
+    deploy("Release")
+  end
+
+  lane :deploy_beta do |options|
+    deploy("Beta")
+  end
+
+  def deploy(configuration)
+    xcode_select("/Applications/Xcode.app")
+    ensure_git_status_clean
+    version_number = increment_version_number_in_xcodeproj(
+      "TestAppdb.xcodeproj",
+      "patch"
+    )
+    build_number = increment_build_number(
+      xcodeproj: "TestAppdb.xcodeproj"
+    )
+
+    git_commit(path: "./TestAppdb.xcodeproj/project.pbxproj", message: "Bump version to #{version_number} (#{build_number})")
+
+    time = Time.now.utc
+    time_str = time.to_s.gsub(" ", "_").gsub(":", "-").gsub("_UTC", "")
+    base_output_dir = "fastlane/output/#{version_number}-#{build_number}_#{time_str}"
+
+    # xcodebuild -project TestAppdb.xcodeproj
+    # -scheme TestAppdb 
+    # -sdk iphoneos
+    # -configuration Debug
+    # CODE_SIGN_IDENTITY=""
+    # CODE_SIGNING_REQUIRED=NO
+    build_app(
+      project: "TestAppdb.xcodeproj", 
+      scheme: "TestAppdb",
+      configuration: configuration,
+      build_path: base_output_dir + "/build",
+      derived_data_path: base_output_dir + "/derived_data",
+      skip_archive: true,
+      result_bundle: true,
+      result_bundle_path: base_output_dir + "/result",
+      buildlog_path: base_output_dir + "/buildlog",
+      output_directory: base_output_dir,
+      skip_codesigning: true,
+      sdk: "iphoneos"
+    )
+
+    build_path = "../#{base_output_dir}/derived_data/Build/Products/#{configuration}-iphoneos"
+    sh("cd #{build_path} && mkdir Payload && cp -R TestAppdb.app Payload && zip -vr TestAppdb_#{version_number}-#{build_number}.ipa Payload")
+    sh("rm -f ./output/TestAppdb_*-*.ipa")
+    sh("cp #{build_path}/TestAppdb_#{version_number}-#{build_number}.ipa ./output")
+  end
+
+  def increment_version_number_in_xcodeproj(xcodeproj, bump_type)
+    xcodeproj_folder = xcodeproj ? File.join("..", xcodeproj) : '.'
+    xcodeproj_path = File.expand_path(xcodeproj_folder).shellescape
+    project = Xcodeproj::Project.open(xcodeproj_path)
+
+    target = project.targets.detect do |t|
+      t.kind_of?(Xcodeproj::Project::Object::PBXNativeTarget) &&
+        t.product_type == 'com.apple.product-type.application'
+    end
+    target = project.targets[0] if target.nil?
+
+    version_number = target.resolved_build_setting('MARKETING_VERSION', true)
+
+    current_version = version_number.values.compact.uniq.first
+    next_version_number = increment_version_number(current_version, bump_type, false)
+    configs = project.objects.select { |obj| select_build_configuration_predicate(nil, obj) }
+    configs.each do |config|
+      config.build_settings["MARKETING_VERSION"] = next_version_number
+    end
+    project.save
+    return next_version_number
+  end
+
+  def select_build_configuration_predicate(name, configuration)
+    is_build_valid_configuration = configuration.isa == "XCBuildConfiguration" && !configuration.resolve_build_setting('PRODUCT_BUNDLE_IDENTIFIER').nil?
+    is_build_valid_configuration &&= configuration.name == name unless name.nil?
+    return is_build_valid_configuration
+  end
+
+  def increment_version_number(current_version, bump_type, omit_zero_patch_version)
+    version_array = current_version.split(".").map(&:to_i)
+    case bump_type
+    when "patch"
+      version_array[2] = (version_array[2] || 0) + 1
+    when "minor"
+      version_array[1] = (version_array[1] || 0) + 1
+      version_array[2] = version_array[2] = 0
+    when "major"
+      version_array[0] = (version_array[0] || 0) + 1
+      version_array[1] = version_array[1] = 0
+      version_array[1] = version_array[2] = 0
+    end
+
+    if omit_zero_patch_version && version_array[2] == 0
+      version_array.pop
+    end
+
+    next_version_number = version_array.join(".")
+    return next_version_number
+  end
+
+end

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestAppdb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-Wm-nTI">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evS-rZ-Q69">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="isInstalledViaAppdb"/>
+                                        <connections>
+                                            <action selector="isInstalledViaAppdb" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOG-7K-0E5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxb-1s-NJo">
+                                        <rect key="frame" x="0.0" y="32" width="393" height="26.666666666666671"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="isAppUpdateAvailable"/>
+                                        <connections>
+                                            <action selector="isAppUpdateAvailable" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Sa-wd-AOi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-Em-lUy">
+                                        <rect key="frame" x="0.0" y="63.666666666666671" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getPersistentCustomerIdentifier"/>
+                                        <connections>
+                                            <action selector="getPersistentCustomerIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="xYc-fu-Z7x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVl-ac-2dR">
+                                        <rect key="frame" x="0.0" y="95.666666666666657" width="393" height="26.666666666666671"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getPersistentDeviceIdentifier"/>
+                                        <connections>
+                                            <action selector="getPersistentDeviceIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="tY2-27-e3p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-UH-kjy">
+                                        <rect key="frame" x="0.0" y="127.33333333333334" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getAppleBundleIdentifier"/>
+                                        <connections>
+                                            <action selector="getAppleBundleIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="lcE-EK-Evw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpt-Jw-OpD">
+                                        <rect key="frame" x="0.0" y="159.33333333333334" width="393" height="26.666666666666657"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getAppleAppGroupIdentifier"/>
+                                        <connections>
+                                            <action selector="getAppleAppGroupIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbD-kq-Vqb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOi-c4-wcV">
+                                        <rect key="frame" x="0.0" y="191" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getAppdbAppIdentifier"/>
+                                        <connections>
+                                            <action selector="getAppdbAppIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8d-fe-R1g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDn-Mi-QtN">
+                                        <rect key="frame" x="0.0" y="223" width="393" height="26.666666666666657"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getAlongsideIdentifier"/>
+                                        <connections>
+                                            <action selector="getAlongsideIdentifier" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fsj-10-cxc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPa-3F-Wms">
+                                        <rect key="frame" x="0.0" y="254.66666666666669" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getInstallationUUID"/>
+                                        <connections>
+                                            <action selector="getInstallationUUID" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIn-lt-FmH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKO-H8-Xh4">
+                                        <rect key="frame" x="0.0" y="286.66666666666669" width="393" height="26.666666666666686"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getSupportedServicesIdentifiers"/>
+                                        <connections>
+                                            <action selector="getSupportedServicesIdentifiers" destination="BYZ-38-t0r" eventType="touchUpInside" id="HX0-o2-Q6P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-qP-uQz">
+                                        <rect key="frame" x="0.0" y="318.33333333333331" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getDeveloperInformation"/>
+                                        <connections>
+                                            <action selector="getDeveloperInformation" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qjd-AU-tOi"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-wH-xC9">
+                                        <rect key="frame" x="0.0" y="350.33333333333331" width="393" height="26.666666666666686"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZZ-Em-edT">
+                                        <rect key="frame" x="0.0" y="382" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="askCustomerToEnableOpenIn"/>
+                                        <connections>
+                                            <action selector="askCustomerToEnableOpenIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="fa7-GL-AW2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgo-Dm-uim">
+                                        <rect key="frame" x="0.0" y="414" width="393" height="26.666666666666686"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="showDeveloperInformation"/>
+                                        <connections>
+                                            <action selector="showDeveloperInformation" destination="BYZ-38-t0r" eventType="touchUpInside" id="zLd-gk-l1P"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1u-LP-vH0">
+                                        <rect key="frame" x="0.0" y="445.66666666666669" width="393" height="27"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-PN-Lrq">
+                                        <rect key="frame" x="0.0" y="477.66666666666663" width="393" height="26.666666666666686"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="registerPushNotifications"/>
+                                        <connections>
+                                            <action selector="registerPushNotifications" destination="BYZ-38-t0r" eventType="touchUpInside" id="XFT-gE-hI2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-wt-TYc">
+                                        <rect key="frame" x="0.0" y="509.33333333333337" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getPushNotification"/>
+                                        <connections>
+                                            <action selector="getPushNotification" destination="BYZ-38-t0r" eventType="touchUpInside" id="dzV-42-JIm"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARk-bR-jhH">
+                                        <rect key="frame" x="0.0" y="541.33333333333337" width="393" height="26.666666666666629"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-0r-qkp">
+                                        <rect key="frame" x="0.0" y="573" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="appAttest"/>
+                                        <connections>
+                                            <action selector="appAttest" destination="BYZ-38-t0r" eventType="touchUpInside" id="wFS-di-a26"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah6-FY-1Jo">
+                                        <rect key="frame" x="0.0" y="605" width="393" height="26.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="validateAppAttest"/>
+                                        <connections>
+                                            <action selector="validateAppAttest" destination="BYZ-38-t0r" eventType="touchUpInside" id="I6b-m5-3fc"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ca-ZY-lCB">
+                                        <rect key="frame" x="0.0" y="636.66666666666663" width="393" height="27"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij9-1O-bwx">
+                                        <rect key="frame" x="0.0" y="668.66666666666663" width="393" height="26.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Backup"/>
+                                        <connections>
+                                            <action selector="backupData" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kep-27-a3h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5A-VE-dJw">
+                                        <rect key="frame" x="0.0" y="700.33333333333337" width="393" height="27"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Restore"/>
+                                        <connections>
+                                            <action selector="restoreBackup" destination="BYZ-38-t0r" eventType="touchUpInside" id="GPK-3b-hZD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-lP-vFY">
+                                        <rect key="frame" x="0.0" y="732.33333333333337" width="393" height="26.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Purge"/>
+                                        <connections>
+                                            <action selector="purgeBackup" destination="BYZ-38-t0r" eventType="touchUpInside" id="qSV-R7-ZQE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0yi-Wm-nTI" secondAttribute="bottom" id="Juq-yM-w0c"/>
+                            <constraint firstItem="0yi-Wm-nTI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eCn-6d-3pe"/>
+                            <constraint firstItem="0yi-Wm-nTI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fhK-oK-Zjl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0yi-Wm-nTI" secondAttribute="trailing" id="sfg-9J-WgQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
