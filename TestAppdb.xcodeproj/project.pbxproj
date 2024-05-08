@@ -27,8 +27,10 @@
 		1CCA29512BA8E85000C9F06A /* TestAppdbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA29502BA8E85000C9F06A /* TestAppdbTests.swift */; };
 		1CCA295B2BA8E85000C9F06A /* TestAppdbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA295A2BA8E85000C9F06A /* TestAppdbUITests.swift */; };
 		1CCA295D2BA8E85000C9F06A /* TestAppdbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA295C2BA8E85000C9F06A /* TestAppdbUITestsLaunchTests.swift */; };
-		1CD873E52BE950E10024BDB0 /* AppdbFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD873E42BE950E10024BDB0 /* AppdbFramework */; };
 		1CF338C72BE42B4A00EB1C39 /* AppdbFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 1CF338C62BE42B4A00EB1C39 /* AppdbFramework */; };
+		88803C602BEB5434000870C3 /* AppdbFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 88803C5F2BEB5434000870C3 /* AppdbFramework */; };
+		88803C632BEB5453000870C3 /* AppdbFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 88803C622BEB5453000870C3 /* AppdbFramework */; };
+		88803C652BEB5462000870C3 /* AppdbFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 88803C642BEB5462000870C3 /* AppdbFramework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD873E52BE950E10024BDB0 /* AppdbFramework in Frameworks */,
+				88803C652BEB5462000870C3 /* AppdbFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88803C632BEB5453000870C3 /* AppdbFramework in Frameworks */,
 				1CF338C72BE42B4A00EB1C39 /* AppdbFramework in Frameworks */,
+				88803C602BEB5434000870C3 /* AppdbFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +146,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0F82712BEAAF63002F31C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1C107EEA2BCF1E8D00BBCA86 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +219,7 @@
 				1C9376B32BE94FEC0078D530 /* TestAppdb-TVTests */,
 				1C9376BD2BE94FEC0078D530 /* TestAppdb-TVUITests */,
 				1CCA29372BA8E84F00C9F06A /* Products */,
+				1C0F82712BEAAF63002F31C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +286,7 @@
 			);
 			name = "TestAppdb-TV";
 			packageProductDependencies = (
-				1CD873E42BE950E10024BDB0 /* AppdbFramework */,
+				88803C642BEB5462000870C3 /* AppdbFramework */,
 			);
 			productName = "TestAppdb-TV";
 			productReference = 1C93769E2BE94FEB0078D530 /* TestAppdb-TV.app */;
@@ -331,6 +343,8 @@
 			name = TestAppdb;
 			packageProductDependencies = (
 				1CF338C62BE42B4A00EB1C39 /* AppdbFramework */,
+				88803C5F2BEB5434000870C3 /* AppdbFramework */,
+				88803C622BEB5453000870C3 /* AppdbFramework */,
 			);
 			productName = TestAppdb;
 			productReference = 1CCA29362BA8E84F00C9F06A /* TestAppdb.app */;
@@ -416,7 +430,7 @@
 			);
 			mainGroup = 1CCA292D2BA8E84F00C9F06A;
 			packageReferences = (
-				1CD873E32BE950E10024BDB0 /* XCRemoteSwiftPackageReference "appdbsdk" */,
+				88803C612BEB5453000870C3 /* XCRemoteSwiftPackageReference "AppdbSDK" */,
 			);
 			productRefGroup = 1CCA29372BA8E84F00C9F06A /* Products */;
 			projectDirPath = "";
@@ -607,7 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -616,14 +630,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Debug;
 		};
@@ -633,7 +646,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -642,14 +655,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Release;
 		};
@@ -659,9 +671,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TVTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -669,7 +681,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestAppdb-TV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestAppdb-TV";
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Debug;
 		};
@@ -679,9 +690,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TVTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -689,7 +700,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestAppdb-TV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestAppdb-TV";
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Release;
 		};
@@ -698,9 +708,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TVUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -708,7 +718,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_TARGET_NAME = "TestAppdb-TV";
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Debug;
 		};
@@ -717,9 +726,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 103;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "to.appdb.TestAppdb-TVUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -727,7 +736,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_TARGET_NAME = "TestAppdb-TV";
-				TVOS_DEPLOYMENT_TARGET = 17.4;
 			};
 			name = Release;
 		};
@@ -783,7 +791,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -791,6 +799,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -840,12 +849,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -857,8 +867,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestAppdb/TestAppdb_Dev.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
-				DEVELOPMENT_TEAM = A2SY882DX2;
+				CURRENT_PROJECT_VERSION = 103;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestAppdb/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Appdb Services";
@@ -871,7 +881,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -887,8 +897,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TestAppdb/TestAppdb_Prod.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
-				DEVELOPMENT_TEAM = A2SY882DX2;
+				CURRENT_PROJECT_VERSION = 103;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestAppdb/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Appdb Services";
@@ -901,7 +911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -916,10 +926,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
+				CURRENT_PROJECT_VERSION = 103;
 				DEVELOPMENT_TEAM = A2SY882DX2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -935,10 +945,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
+				CURRENT_PROJECT_VERSION = 103;
 				DEVELOPMENT_TEAM = A2SY882DX2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -953,10 +963,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
+				CURRENT_PROJECT_VERSION = 103;
 				DEVELOPMENT_TEAM = A2SY882DX2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdbUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -971,10 +981,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 94;
+				CURRENT_PROJECT_VERSION = 103;
 				DEVELOPMENT_TEAM = A2SY882DX2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.82;
+				MARKETING_VERSION = 1.0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.TestAppdbUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1053,24 +1063,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1CD873E32BE950E10024BDB0 /* XCRemoteSwiftPackageReference "appdbsdk" */ = {
+		88803C612BEB5453000870C3 /* XCRemoteSwiftPackageReference "AppdbSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitlab.bfsc.to/davecool/appdbsdk";
+			repositoryURL = "https://github.com/appdb-official/AppdbSDK";
 			requirement = {
-				kind = exactVersion;
-				version = 1.3.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1CD873E42BE950E10024BDB0 /* AppdbFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1CD873E32BE950E10024BDB0 /* XCRemoteSwiftPackageReference "appdbsdk" */;
-			productName = AppdbFramework;
-		};
 		1CF338C62BE42B4A00EB1C39 /* AppdbFramework */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = AppdbFramework;
+		};
+		88803C5F2BEB5434000870C3 /* AppdbFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppdbFramework;
+		};
+		88803C622BEB5453000870C3 /* AppdbFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88803C612BEB5453000870C3 /* XCRemoteSwiftPackageReference "AppdbSDK" */;
+			productName = AppdbFramework;
+		};
+		88803C642BEB5462000870C3 /* AppdbFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88803C612BEB5453000870C3 /* XCRemoteSwiftPackageReference "AppdbSDK" */;
 			productName = AppdbFramework;
 		};
 /* End XCSwiftPackageProductDependency section */

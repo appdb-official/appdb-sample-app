@@ -1,13 +1,13 @@
 {
-  "originHash" : "847f5ae7625c2176e1dafc9ffd22e64e720213f7a0c426fe80abe6e6c43b3890",
+  "originHash" : "e8eb8ab916e22ac6be2f5ae6d9b55f94df4353a42f50f45b1b1c7be3af68f868",
   "pins" : [
     {
       "identity" : "appdbsdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://gitlab.bfsc.to/davecool/appdbsdk",
+      "location" : "https://github.com/appdb-official/AppdbSDK",
       "state" : {
-        "revision" : "49d9f13fc999821779dbe1d4d5d5078c76cebbde",
-        "version" : "1.3.0"
+        "revision" : "e0501b5b97df0f2ceba3104e091e28dbf5275e52",
+        "version" : "1.4.0"
       }
     }
   ],

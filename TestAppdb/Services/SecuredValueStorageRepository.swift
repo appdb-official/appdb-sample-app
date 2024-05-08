@@ -66,7 +66,7 @@ final class SecuredValueStorageRepository {
         ).first
         let directory = documentDirectory!
         let pathWithFileName = directory.appendingPathComponent("sessionData.val", isDirectory: false)
-        let value = FileManager.default.fileExists(atPath: pathWithFileName.path(percentEncoded: true))
+        let value = FileManager.default.fileExists(atPath: pathWithFileName.path)
         return .success(value)
     }
 
