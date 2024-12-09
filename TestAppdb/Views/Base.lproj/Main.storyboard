@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +20,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-Wm-nTI">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXh-1M-pat">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="19"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evS-rZ-Q69">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="24" width="393" height="18.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="isInstalledViaAppdb"/>
                                         <connections>
@@ -29,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxb-1s-NJo">
-                                        <rect key="frame" x="0.0" y="32" width="393" height="26.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="47.666666666666671" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="isAppUpdateAvailable"/>
                                         <connections>
@@ -37,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dz-Em-lUy">
-                                        <rect key="frame" x="0.0" y="63.666666666666671" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getPersistentCustomerIdentifier"/>
                                         <connections>
@@ -45,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVl-ac-2dR">
-                                        <rect key="frame" x="0.0" y="95.666666666666657" width="393" height="26.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="95.666666666666657" width="393" height="18.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getPersistentDeviceIdentifier"/>
                                         <connections>
@@ -53,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-UH-kjy">
-                                        <rect key="frame" x="0.0" y="127.33333333333334" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="119.33333333333334" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getAppleBundleIdentifier"/>
                                         <connections>
@@ -61,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpt-Jw-OpD">
-                                        <rect key="frame" x="0.0" y="159.33333333333334" width="393" height="26.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="143.33333333333334" width="393" height="18.666666666666657"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getAppleAppGroupIdentifier"/>
                                         <connections>
@@ -69,7 +75,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOi-c4-wcV">
-                                        <rect key="frame" x="0.0" y="191" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="167" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getAppdbAppIdentifier"/>
                                         <connections>
@@ -77,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDn-Mi-QtN">
-                                        <rect key="frame" x="0.0" y="223" width="393" height="26.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="191" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getAlongsideIdentifier"/>
                                         <connections>
@@ -85,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPa-3F-Wms">
-                                        <rect key="frame" x="0.0" y="254.66666666666669" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="215" width="393" height="18.666666666666657"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getInstallationUUID"/>
                                         <connections>
@@ -93,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKO-H8-Xh4">
-                                        <rect key="frame" x="0.0" y="286.66666666666669" width="393" height="26.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="238.66666666666669" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getSupportedServicesIdentifiers"/>
                                         <connections>
@@ -101,7 +107,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-qP-uQz">
-                                        <rect key="frame" x="0.0" y="318.33333333333331" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="262.66666666666669" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getDeveloperInformation"/>
                                         <connections>
@@ -109,11 +115,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMm-wH-xC9">
-                                        <rect key="frame" x="0.0" y="350.33333333333331" width="393" height="26.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="286.66666666666669" width="393" height="18.666666666666686"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZZ-Em-edT">
-                                        <rect key="frame" x="0.0" y="382" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="310.33333333333331" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="askCustomerToEnableOpenIn"/>
                                         <connections>
@@ -121,7 +127,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgo-Dm-uim">
-                                        <rect key="frame" x="0.0" y="414" width="393" height="26.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="334.33333333333331" width="393" height="18.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="showDeveloperInformation"/>
                                         <connections>
@@ -129,11 +135,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1u-LP-vH0">
-                                        <rect key="frame" x="0.0" y="445.66666666666669" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="358" width="393" height="19"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-PN-Lrq">
-                                        <rect key="frame" x="0.0" y="477.66666666666663" width="393" height="26.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="382" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="registerPushNotifications"/>
                                         <connections>
@@ -141,7 +147,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-wt-TYc">
-                                        <rect key="frame" x="0.0" y="509.33333333333337" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="406" width="393" height="18.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="getPushNotification"/>
                                         <connections>
@@ -149,11 +155,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARk-bR-jhH">
-                                        <rect key="frame" x="0.0" y="541.33333333333337" width="393" height="26.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="429.66666666666669" width="393" height="19"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-0r-qkp">
-                                        <rect key="frame" x="0.0" y="573" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="453.66666666666663" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="appAttest"/>
                                         <connections>
@@ -161,7 +167,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah6-FY-1Jo">
-                                        <rect key="frame" x="0.0" y="605" width="393" height="26.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="477.66666666666663" width="393" height="18.666666666666686"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="validateAppAttest"/>
                                         <connections>
@@ -169,11 +175,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ca-ZY-lCB">
-                                        <rect key="frame" x="0.0" y="636.66666666666663" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="501.33333333333337" width="393" height="19"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij9-1O-bwx">
-                                        <rect key="frame" x="0.0" y="668.66666666666663" width="393" height="26.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="525.33333333333337" width="393" height="18.666666666666629"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Backup"/>
                                         <connections>
@@ -181,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5A-VE-dJw">
-                                        <rect key="frame" x="0.0" y="700.33333333333337" width="393" height="27"/>
+                                        <rect key="frame" x="0.0" y="549" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Restore"/>
                                         <connections>
@@ -189,11 +195,63 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhA-lP-vFY">
-                                        <rect key="frame" x="0.0" y="732.33333333333337" width="393" height="26.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="573" width="393" height="19"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Purge"/>
                                         <connections>
                                             <action selector="purgeBackup" destination="BYZ-38-t0r" eventType="touchUpInside" id="qSV-R7-ZQE"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRM-9o-GI6">
+                                        <rect key="frame" x="0.0" y="597" width="393" height="18.666666666666629"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ok-cT-Yrq">
+                                        <rect key="frame" x="0.0" y="620.66666666666663" width="393" height="19"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="initInAppPurchase (OneTime)"/>
+                                        <connections>
+                                            <action selector="initOneTimeInAppPurchase" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvz-70-1zc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPe-eb-dpG" userLabel="initInAppPurchase (Consumable)">
+                                        <rect key="frame" x="0.0" y="644.66666666666663" width="393" height="19"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="initInAppPurchase (Consumable)"/>
+                                        <connections>
+                                            <action selector="initConsumableInAppPurchase" destination="BYZ-38-t0r" eventType="touchUpInside" id="tAG-8a-cMf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iee-z6-2F1">
+                                        <rect key="frame" x="0.0" y="668.66666666666663" width="393" height="18.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="sync/restore Consumable"/>
+                                        <connections>
+                                            <action selector="syncRestoreConsumable" destination="BYZ-38-t0r" eventType="touchUpInside" id="vhF-WY-aPL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72j-Lk-NBe">
+                                        <rect key="frame" x="0.0" y="692.33333333333337" width="393" height="19"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="setInAppConsumableAmount"/>
+                                        <connections>
+                                            <action selector="setInAppConsumableAmount" destination="BYZ-38-t0r" eventType="touchUpInside" id="ERv-Zh-164"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxa-Qw-zve" userLabel="initInAppPurchase (Subscription)">
+                                        <rect key="frame" x="0.0" y="716.33333333333337" width="393" height="18.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="initInAppPurchase (Subscription)"/>
+                                        <connections>
+                                            <action selector="initSubscriptionInAppPurchase" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8J-Fd-zHj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn5-53-Y3O" userLabel="Add">
+                                        <rect key="frame" x="0.0" y="740" width="393" height="19"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="getSubscriptionStatus"/>
+                                        <connections>
+                                            <action selector="getSubscriptionStatus" destination="BYZ-38-t0r" eventType="touchUpInside" id="sVe-O3-BGj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -208,6 +266,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0yi-Wm-nTI" secondAttribute="trailing" id="sfg-9J-WgQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backView" destination="0yi-Wm-nTI" id="hfj-wS-8qf"/>
+                        <outlet property="inAppPurchaseConsumableButton" destination="mPe-eb-dpG" id="FOW-6r-Qg1"/>
+                        <outlet property="inAppPurchaseOneTimeButton" destination="3ok-cT-Yrq" id="yUP-Nx-56g"/>
+                        <outlet property="inAppPurchaseSubscriptionButton" destination="lxa-Qw-zve" id="iM0-87-LnJ"/>
+                        <outlet property="syncRestoreConsumableButton" destination="Iee-z6-2F1" id="tFz-9b-DgV"/>
+                        <outlet property="versionLabel" destination="cXh-1M-pat" id="0r8-RC-B0V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,12 @@ import CryptoKit
 class ViewController: UIViewController {
 
     private let securedValueStorageRepository: SecuredValueStorageRepository
+    @IBOutlet private var backView: UIView!
+    @IBOutlet private var inAppPurchaseOneTimeButton: UIButton!
+    @IBOutlet private var inAppPurchaseConsumableButton: UIButton!
+    @IBOutlet private var inAppPurchaseSubscriptionButton: UIButton!
+    @IBOutlet private var syncRestoreConsumableButton: UIButton!
+    @IBOutlet private var versionLabel: UILabel!
 
     required init?(coder: NSCoder) {
         self.securedValueStorageRepository = SecuredValueStorageRepository()
@@ -21,6 +27,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        let short = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "???"
+        versionLabel.text = "Version: \(short) (\(build))"
+
+        restoreInAppPurchases()
+        refreshInAppPurchaseButtons()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             guard let self else { return }
@@ -379,7 +392,7 @@ class ViewController: UIViewController {
         ]
         showAlert(
             title: "backupData",
-            message: "Backuped data: \(value)"
+            message: "Data to backup: \(value)"
         ) {
             Appdb.shared.storeBackup(
                 backupIDKey: hash,
@@ -504,7 +517,7 @@ class ViewController: UIViewController {
         completion: @escaping () -> Void
     ) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(.init(title: "Okay", style: .default, handler: { _ in
+        alertVC.addAction(.init(title: "OK", style: .default, handler: { _ in
             completion()
         }))
         present(alertVC, animated: true)
@@ -607,5 +620,347 @@ class ViewController: UIViewController {
             )
         }
     }
+
+    @IBAction private func initOneTimeInAppPurchase() {
+        let productID = "product_b9787f068a60b3563bed593172077df5b7bbbf2f"
+        Appdb.shared.showInAppPurchaseProductMetadata(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                switch result {
+                case .success:
+                    Appdb.shared.setupInAppPurchaseHandler { [weak self] productIdentifier, result in
+                        guard let self else { return }
+                        switch result {
+                        case let .success(value):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initOneTimeInAppPurchase: \(productIdentifier)",
+                                    message: "\(value)",
+                                    completion: {}
+                                )
+                            }
+
+                            if value == true, productIdentifier == productID {
+                                UserDefaults.standard.setValue(true, forKey: "OneTimeInApp")
+                                self.refreshInAppPurchaseButtons()
+                            }
+
+                        case let .failure(error):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initOneTimeInAppPurchase \(productIdentifier)",
+                                    message: error.localizedDescription,
+                                    completion: {}
+                                )
+                            }
+                        }
+                    }
+                    Appdb.shared.initInAppPurchase(
+                        productIdentifier: productID
+                    )
+
+                case let .failure(error):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "initOneTimeInAppPurchase (show)",
+                            message: error.localizedDescription,
+                            completion: {}
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    @IBAction private func initConsumableInAppPurchase() {
+        let productID = "product_200f654c78dc76ad6abbf48775863015fc98d530"
+        Appdb.shared.showInAppPurchaseProductMetadata(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                switch result {
+                case .success:
+                    Appdb.shared.setupInAppPurchaseHandler { [weak self] productIdentifier, result in
+                        guard let self else { return }
+                        switch result {
+                        case let .success(value):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initConsumableInAppPurchase: \(productIdentifier)",
+                                    message: "\(value)",
+                                    completion: {}
+                                )
+                            }
+
+                            if value == true, productIdentifier == productID {
+                                UserDefaults.standard.setValue(true, forKey: "ConsumableInApp")
+                                self.refreshInAppPurchaseButtons()
+                            }
+
+                        case let .failure(error):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initConsumableInAppPurchase \(productIdentifier)",
+                                    message: error.localizedDescription,
+                                    completion: {}
+                                )
+                            }
+                        }
+
+                        Appdb.shared.syncInAppConsumable(
+                            productIdentifier: productID,
+                            completion: { [weak self] result in
+                                guard let self else { return }
+                                switch result {
+                                case let .success(value):
+                                    DispatchQueue.main.async { [weak self] in
+                                        guard let self else { return }
+                                        self.syncRestoreConsumableButton.setTitle("sync/restore Consumable (\(value))", for: .normal)
+                                    }
+
+                                case let .failure(error):
+                                    debugPrint(error)
+                                }
+                            }
+                        )
+                    }
+                    Appdb.shared.initInAppPurchase(
+                        productIdentifier: productID
+                    )
+
+                case let .failure(error):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "initConsumableInAppPurchase (show)",
+                            message: error.localizedDescription,
+                            completion: {}
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    @IBAction private func initSubscriptionInAppPurchase() {
+        let productID = "product_0c7df3cd32b73dd28e050393d0b39d1ad8e1fa99"
+        Appdb.shared.showInAppPurchaseProductMetadata(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                switch result {
+                case .success:
+                    Appdb.shared.setupInAppPurchaseHandler { [weak self] productIdentifier, result in
+                        guard let self else { return }
+                        switch result {
+                        case let .success(value):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initSubscriptionInAppPurchase: \(productIdentifier)",
+                                    message: "\(value)",
+                                    completion: {}
+                                )
+                            }
+
+                            if value == true, productIdentifier == productID {
+                                UserDefaults.standard.setValue(true, forKey: "SubscriptionInApp")
+                                self.refreshInAppPurchaseButtons()
+                            }
+
+                        case let .failure(error):
+                            DispatchQueue.main.async { [unowned self] in
+                                self.showAlert(
+                                    title: "initSubscriptionInAppPurchase \(productIdentifier)",
+                                    message: error.localizedDescription,
+                                    completion: {}
+                                )
+                            }
+                        }
+                    }
+                    Appdb.shared.initInAppPurchase(
+                        productIdentifier: productID
+                    )
+
+                case let .failure(error):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "initSubscriptionInAppPurchase (show)",
+                            message: error.localizedDescription,
+                            completion: {}
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    @IBAction private func syncRestoreConsumable() {
+        let productID = "product_200f654c78dc76ad6abbf48775863015fc98d530"
+        Appdb.shared.syncInAppConsumable(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case let .success(value):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.syncRestoreConsumableButton.setTitle("sync/restore Consumable (\(value))", for: .normal)
+                        self.showAlert(
+                            title: "syncRestoreConsumable",
+                            message: "Count: \(value)",
+                            completion: {}
+                        )
+                    }
+
+                case let .failure(error):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "syncRestoreConsumable",
+                            message: error.localizedDescription,
+                            completion: {}
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    @IBAction private func setInAppConsumableAmount() {
+        let productID = "product_200f654c78dc76ad6abbf48775863015fc98d530"
+        let message = "Setup new Consumable InApp amount"
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addTextField()
+        alertVC.addAction(
+            .init(title: "OK", style: .default, handler: { [unowned alertVC] _ in
+                let answer = alertVC.textFields![0]
+                guard let count = Int(answer.text ?? "") else {
+                    self.showAlert(
+                        title: "setInAppConsumableAmount",
+                        message: "wrong input",
+                        completion: {}
+                    )
+                    return
+                }
+
+                Appdb.shared.setInAppConsumableAmount(
+                    productIdentifier: productID,
+                    amount: count,
+                    completion: { [weak self] result in
+                        guard let self else { return }
+                        switch result {
+                        case let .success(value):
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self else { return }
+                                self.syncRestoreConsumableButton.setTitle("sync/restore Consumable: \(value)", for: .normal)
+                                self.showAlert(
+                                    title: "setInAppConsumableAmount",
+                                    message: "Count: \(value)",
+                                    completion: {}
+                                )
+                            }
+
+                        case let .failure(error):
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self else { return }
+                                self.showAlert(
+                                    title: "setInAppConsumableAmount",
+                                    message: error.localizedDescription,
+                                    completion: {}
+                                )
+                            }
+                        }
+                    }
+                )
+            })
+        )
+        present(alertVC, animated: true)
+    }
+
+    @IBAction private func getSubscriptionStatus() {
+        let productID = "product_0c7df3cd32b73dd28e050393d0b39d1ad8e1fa99"
+        Appdb.shared.getSubscriptionStatus(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case let .success(value):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "getSubscriptionStatus",
+                            message: "\(value)",
+                            completion: {}
+                        )
+                    }
+
+                case let .failure(error):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showAlert(
+                            title: "getSubscriptionStatus",
+                            message: error.localizedDescription,
+                            completion: {}
+                        )
+                    }
+                }
+            }
+        )
+    }
+
+    private func restoreInAppPurchases() {
+        let productID = "product_200f654c78dc76ad6abbf48775863015fc98d530"
+        Appdb.shared.syncInAppConsumable(
+            productIdentifier: productID,
+            completion: { [weak self] result in
+                guard let self else { return }
+                switch result {
+                case let .success(value):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.syncRestoreConsumableButton.setTitle("sync/restore Consumable: \(value)", for: .normal)
+                    }
+
+                case let .failure(error):
+                    debugPrint(error)
+                }
+            }
+        )
+    }
+
+    private func refreshInAppPurchaseButtons() {
+        if let oneTimeInAppValue = UserDefaults.standard.value(forKey: "OneTimeInApp"),
+            let oneTimeInAppBoolValue = oneTimeInAppValue as? Bool,
+            oneTimeInAppBoolValue == true
+        {
+            inAppPurchaseOneTimeButton.setTitle("initInAppPurchase (OneTime): ✅", for: .normal)
+        } else {
+            inAppPurchaseOneTimeButton.setTitle("initInAppPurchase (OneTime): 💶", for: .normal)
+        }
+
+        if let oneTimeInAppValue = UserDefaults.standard.value(forKey: "ConsumableInApp"),
+           let oneTimeInAppBoolValue = oneTimeInAppValue as? Bool,
+           oneTimeInAppBoolValue == true
+        {
+            inAppPurchaseConsumableButton.setTitle("initInAppPurchase (Consumable): ✅", for: .normal)
+        } else {
+            inAppPurchaseConsumableButton.setTitle("initInAppPurchase (Consumable): 💶", for: .normal)
+        }
+
+        if let oneTimeInAppValue = UserDefaults.standard.value(forKey: "SubscriptionInApp"),
+           let oneTimeInAppBoolValue = oneTimeInAppValue as? Bool,
+           oneTimeInAppBoolValue == true
+        {
+            inAppPurchaseSubscriptionButton.setTitle("initInAppPurchase (Subscription): ✅", for: .normal)
+        } else {
+            inAppPurchaseSubscriptionButton.setTitle("initInAppPurchase (Subscription): 💶", for: .normal)
+        }
+    }
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

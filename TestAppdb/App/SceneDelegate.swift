@@ -5,6 +5,7 @@
 //  Created by Dmitrii Coolerov on 19.03.2024.
 //
 
+import AppdbSDK
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,24 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let _scene = (scene as? UIWindowScene) else { return }
 
         UNUserNotificationCenter.current().delegate = self
 
         if let urlContext = connectionOptions.urlContexts.first {
-            let sendingAppID = urlContext.options.sourceApplication ?? "Unknown"
-            let url = urlContext.url.absoluteString
-
-            let argsDict = deeplinkURLToDict(urlString: url)
-            let deeplink = argsDict["deeplink"]?.removingPercentEncoding ?? "Unknown"
-
-            let alertVC = UIAlertController(title: "deeplink", message: "(\(sendingAppID)) " + deeplink, preferredStyle: .alert)
-            alertVC.addAction(.init(title: "OK", style: .default))
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-                guard let self = self else { return }
-                self.getRootVC()?.present(alertVC, animated: true)
-            }
+            handleContext(urlContext: urlContext)
         }
     }
 
@@ -69,19 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let urlContext = URLContexts.first {
-            let sendingAppID = urlContext.options.sourceApplication ?? "Unknown"
-            let url = urlContext.url.absoluteString
-            
-            let argsDict = deeplinkURLToDict(urlString: url)
-            let deeplink = argsDict["deeplink"]?.removingPercentEncoding ?? "Unknown"
-
-            let alertVC = UIAlertController(title: "deeplink", message: "(\(sendingAppID)) " + deeplink, preferredStyle: .alert)
-            alertVC.addAction(.init(title: "OK", style: .default))
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-                guard let self = self else { return }
-                self.getRootVC()?.present(alertVC, animated: true)
-            }
+            handleContext(urlContext: urlContext)
         }
     }
 
@@ -106,6 +83,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             argsDict[key] = value
         }
         return argsDict
+    }
+
+    private func handleContext(urlContext: UIOpenURLContext) {
+        let sendingAppID = urlContext.options.sourceApplication ?? "Unknown"
+        let url = urlContext.url
+
+        // Pass only appdb deeplinks to sdk
+        if let urlScheme = url.scheme, urlScheme.starts(with: "appdb.") {
+            Appdb.shared.handleDeeplink(url)
+        }
+
+        let argsDict = deeplinkURLToDict(urlString: url.absoluteString)
+        if argsDict.keys.contains("deeplink") {
+            let deeplink = argsDict["deeplink"]?.removingPercentEncoding ?? "Unknown"
+
+            let alertVC = UIAlertController(title: "deeplink", message: "(\(sendingAppID)) " + deeplink, preferredStyle: .alert)
+            alertVC.addAction(.init(title: "OK", style: .default))
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                guard let self = self else { return }
+                self.getRootVC()?.present(alertVC, animated: true)
+            }
+            return
+        }
     }
 }
 

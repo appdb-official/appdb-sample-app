@@ -9,10 +9,6 @@ platform :ios do
     deploy("Release")
   end
 
-  lane :deploy_beta do |options|
-    deploy("Beta")
-  end
-
   def deploy(configuration)
     xcode_select("/Applications/Xcode.app")
     ensure_git_status_clean
